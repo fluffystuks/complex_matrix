@@ -1,21 +1,31 @@
 public class Main {
     public static void main(String[] args) {
-        ComplexNumber c1 = new ComplexNumber(3.0, 4.0);
-        ComplexNumber c2 = new ComplexNumber(1.0, -2.0);
-        ComplexNumber sum = c1.add(c2);
+        System.out.println("ТЕСТ КОМПЛЕКСНЫХ ЧИСЕЛ");
+        ComplexNumber c1 = new ComplexNumber(2.0, 3.0);
+        ComplexNumber c2 = new ComplexNumber(1.0, -1.0);
+        
+        System.out.println("Число 1: " + c1);
+        System.out.println("Число 2: " + c2);
+        System.out.println("Сумма: " + c1.add(c2));
+        System.out.println("Произведение: " + c1.multiply(c2));
+        
+        System.out.println("\nТЕСТ МАТРИЦ");
 
-        System.out.println("Первое число: " + c1);
-        System.out.println("Второе число: " + c2);
-        System.out.println("Сумма чисел: " + sum);
-        System.out.println("--");
+        ComplexMatrix m1 = new ComplexMatrix(2, 2);
+        m1.set(0, 0, new ComplexNumber(1, 0));
+        m1.set(0, 1, new ComplexNumber(2, 1));
+        m1.set(1, 0, new ComplexNumber(3, -1));
+        m1.set(1, 1, new ComplexNumber(4, 0));
 
-        ComplexMatrix matrix = new ComplexMatrix(2, 2);
-        matrix.set(0, 0, new ComplexNumber(1, 0));
-        matrix.set(0, 1, new ComplexNumber(0, 1));
-        matrix.set(1, 0, new ComplexNumber(-1, 0));
-        matrix.set(1, 1, new ComplexNumber(0, -1));
+        System.out.println("Матрица M1:");
+        System.out.println(m1);
 
-        System.out.println("Созданная матрица:");
-        System.out.println(matrix);
+        ComplexMatrix mTransposed = MatrixOperations.transpose(m1);
+        System.out.println("Транспонированная M1:");
+        System.out.println(mTransposed);
+
+        // Определитель
+        ComplexNumber det = MatrixDeterminant.determinant(m1);
+        System.out.println("Определитель матрицы M1: " + det);
     }
 }
